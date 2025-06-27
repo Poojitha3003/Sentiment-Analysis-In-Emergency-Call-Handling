@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Sentiment Analysis</title>
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Heading Styling */
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ffcc00;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+        }
+
+        /* Animated Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #fff;
+            white-space: nowrap;
+            animation: typing 4s steps(40, end) forwards, blink 0.8s infinite;
+            font-size: 1.3rem;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        /* Description Styling */
+        h6 {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #f1f1f1;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            h2 { font-size: 1.5rem; }
+            h6 { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="typewriter">Real-Time Sentiment Analysis for Smarter Emergency Response</h2>
+        <h6>
+            "Unlock the power of real-time sentiment analysis with advanced NLP techniques.
+            Our system enhances emergency response by detecting emotional cues in calls,
+            ensuring faster, more efficient dispatch decisions. By integrating contextual
+            sentiment and topic analysis, we revolutionize public safety, providing a smarter,
+            more empathetic response to critical situations."
+        </h6>
+    </div>
+</body>
+</html>
+{% endblock %}

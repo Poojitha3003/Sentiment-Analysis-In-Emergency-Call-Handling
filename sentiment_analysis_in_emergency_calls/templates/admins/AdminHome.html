@@ -1,0 +1,75 @@
+{% extends 'admins/adminbase.html'%}
+{% block contents %}
+
+<section id="intro">
+    <div class="intro-text">
+        <div class="container">
+            <div class="welcome-text">
+                <h4>Welcome to Admin Homepage...</h4>
+            </div>
+            <div class="content-box">
+                <h2 class="typewriter">Real-Time Sentiment Analysis for Smarter Emergency Response</h2>
+                <h6>
+                    "Unlock the power of real-time sentiment analysis with advanced NLP techniques.
+                    Our system enhances emergency response by detecting emotional cues in calls,
+                    ensuring faster, more efficient dispatch decisions. By integrating contextual
+                    sentiment and topic analysis, we revolutionize public safety, providing a smarter,
+                    more empathetic response to critical situations."
+                </h6>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #2c3e50, #1a1a1a);
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        text-align: center;
+    }
+
+    .welcome-text {
+        margin-top: 50px;
+        color: orange;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .content-box {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .typewriter {
+        font-size: 20px;
+        font-weight: bold;
+        overflow: hidden;
+        border-right: 3px solid white;
+        white-space: nowrap;
+        width: 0;
+        animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
+
+    h6 {
+        font-size: 16px;
+        margin-top: 15px;
+        line-height: 1.6;
+    }
+</style>
+
+{% endblock %}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Register</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+        /* Navbar Styles */
+        .navbar {
+            width: 100%;
+            background: #2c3e50;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #f39c12;
+        }
+
+        /* Page layout */
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding-top: 80px; /* Offset for fixed navbar */
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        /* Card container */
+        .card {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #f39c12;
+        }
+
+        /* Form styling */
+        .table-borderless td {
+            padding: 8px 5px;
+        }
+
+        /* Input fields */
+        input, select {
+            width: 100%;
+            height: 35px;
+            font-size: 14px;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #ddd;
+        }
+
+        /* Submit button */
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            background: #f39c12;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'AdminLogin' %}">Admin</a></li>
+            <li><a href="{% url 'UserLogin' %}">User</a></li>
+            <li><a href="{% url 'UserRegister' %}">Register</a></li>
+        </ul>
+    </div>
+
+    <!-- User Registration Form -->
+    <section>
+        <div class="card">
+            <form action="{% url 'UserRegisterActions' %}" method="POST">
+                <h3>User Register</h3>
+                {% csrf_token %}
+                <table class="table-borderless">
+                    <tr><td><label>User Name</label></td><td>{{ form.name }}</td></tr>
+                    <tr><td><label>Login ID</label></td><td>{{ form.loginid }}</td></tr>
+                    <tr><td><label>Password</label></td><td>{{ form.password }}</td></tr>
+                    <tr><td><label>Mobile</label></td><td>{{ form.mobile }}</td></tr>
+                    <tr><td><label>Email</label></td><td>{{ form.email }}</td></tr>
+                    <tr><td><label>Locality</label></td><td>{{ form.locality }}</td></tr>
+                    <tr><td><label>Address</label></td><td>{{ form.address }}</td></tr>
+                    <tr><td><label>City</label></td><td>{{ form.city }}</td></tr>
+                    <tr><td><label>State</label></td><td>{{ form.state }}</td></tr>
+                    <tr><td><label>Status</label></td><td>{{ form.status }}</td></tr>
+                    <tr><td colspan="2"><button type="submit">Register</button></td></tr>
+                </table>
+                
+                {% if messages %}
+                <div class="mt-2 text-center">
+                    {% for message in messages %}
+                    <p class="text-danger">{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </form>
+        </div>
+    </section>
+</body>
+</html>

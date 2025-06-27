@@ -1,0 +1,85 @@
+{% extends 'users/userbase.html'%}
+{%block contents%}
+
+<style>
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Poppins:wght@300;400;600&display=swap');
+
+/* Page Styling */
+body {
+    background-color: #1c1c1c;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Typewriter Effect */
+.cursor {
+    position: relative;
+    display: inline-block;
+    margin: 20px auto;
+    font-size: 17px;
+    font-weight: 600;
+    color: #d00c0c;
+    padding: 15px;
+    border-right: 3px solid white;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: 
+        typewriter 6s steps(60) 1s 1 normal both, 
+        blinkingCursor 700ms steps(100) infinite normal;
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blinkingCursor {
+    50% { border-right-color: transparent; }
+}
+
+/* Welcome Message */
+.welcome-text {
+    color: #ff6347;
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Info Box */
+.info-box {
+    background: rgba(93, 3, 239, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #0408e3;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+</style>
+
+<!-- Typewriter Effect -->
+<div class="cursor">
+    "Real-Time Sentiment Analysis for Smarter Emergency Response:
+    Leveraging NLP to Enhance Public Safety and Dispatch Efficiency"
+</div>
+
+<!-- Welcome Message -->
+<div class="welcome-text">
+    Welcome To User HomePage!
+</div>
+
+<!-- Info Box -->
+<div class="info-box">
+    <p>Unlock the power of real-time sentiment analysis with advanced NLP techniques.</p>
+    <p>Our system enhances emergency response by detecting emotional cues in emergency calls, enabling faster, more efficient dispatch decisions.</p>
+    <p>By integrating contextual sentiment and topic analysis, we revolutionize public safety and resource allocation.</p>
+</div>
+
+{%endblock%}

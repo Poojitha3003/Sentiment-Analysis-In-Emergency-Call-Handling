@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>New Project</title>
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url("{% static 'assets/img/police.jpg' %}");
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: black;
+            font-family: "Roboto", sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top: 120px;
+        }
+
+        /* Header */
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.5rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1100;
+        }
+
+        header h1 {
+            font-family: "Russo One", sans-serif;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: black;
+            padding: 10px 0;
+            position: fixed;
+            top: 60px;
+            width: 100%;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #222;
+            border-radius: 5px;
+            color: #ffcc00;
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .navbar ul li {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 150px 20px 20px;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: dimgray;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Emergency Calls for Enhanced Police Dispatch Services</h1>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'AdminLogin' %}">Admin</a></li>
+            <li><a href="{% url 'UserLogin' %}">User</a></li>
+            <li><a href="{% url 'UserRegister' %}">Register</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        {% block contents %}{% endblock %}
+    </div>
+
+    <footer>
+        © 2025 Emergency Calls for Enhanced Police Dispatch Services
+    </footer>
+</body>
+</html>

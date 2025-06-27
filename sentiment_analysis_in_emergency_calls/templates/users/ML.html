@@ -1,0 +1,76 @@
+{% extends 'users/userbase.html' %}
+{% load static %}
+
+{% block contents %}
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <!-- Bootstrap for styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* Centered Container */
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Input Field */
+        .form-control {
+            border-radius: 6px;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background-color: dodgerblue;
+            border: none;
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0073e6;
+        }
+
+        /* Alert Message */
+        .alert {
+            font-size: 18px;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-primary">Urgency Level Prediction</h1>
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+
+        
+            <div class="alert alert-warning">
+                <strong>Predicted Urgency Level:</strong> {{ predicted_urgency }}
+            </div>
+        
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="callerStatement" class="form-label">Caller Statement:</label>
+                <textarea class="form-control" name="callerStatement" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict Urgency Level</button>
+        </form>
+    </div>
+</body>
+{% endblock %}
